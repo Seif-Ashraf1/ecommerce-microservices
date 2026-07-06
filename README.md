@@ -72,26 +72,26 @@ The system follows a **Microservices Architecture** where each service owns its 
 
 # 📦 Planned Microservices
 
-| Service | Status |
-|----------|--------|
-| Config Server | ⏳ Planned |
-| Eureka Discovery | ⏳ Planned |
-| API Gateway | ⏳ Planned |
-| Authentication Service | ⏳ Planned |
-| User Service | ⏳ Planned |
-| Product Service | ⏳ Planned |
-| Category Service | ⏳ Planned |
-| Inventory Service | ⏳ Planned |
-| Cart Service | ⏳ Planned |
-| whishlist Service | ⏳ Planned |
-| Coupon Service | ⏳ Planned |
-| Order Service | ⏳ Planned |
-| Payment Service | ⏳ Planned |
-| Shipping Service | ⏳ Planned |
-| Notification Service | ⏳ Planned |
-| Review Service | ⏳ Planned |
-| Search Service | ⏳ Planned |
-| Admin Service | ⏳ Planned |
+| Service | Purpose | Status |
+|----------|---------|--------|
+| Config Server | Centralized configuration | ⏳ Planned |
+| Eureka Discovery Server | Service discovery | ⏳ Planned |
+| API Gateway | Routing & API entry point | ⏳ Planned |
+| Authentication Service | Authentication & JWT | ⏳ Planned |
+| User Service | Customer profile management | ⏳ Planned |
+| Admin Service | Administration & management operations | ⏳ Planned |
+| Category Service | Product category management | ⏳ Planned |
+| Product Service | Product catalog | ⏳ Planned |
+| Inventory Service | Stock management | ⏳ Planned |
+| Cart Service | Shopping cart | ⏳ Planned |
+| Wishlist Service | Customer wishlist | ⏳ Planned |
+| Coupon Service | Discounts & promotions | ⏳ Planned |
+| Order Service | Order lifecycle | ⏳ Planned |
+| Payment Service | Payment processing | ⏳ Planned |
+| Shipping Service | Shipment & delivery | ⏳ Planned |
+| Notification Service | Email/SMS/Push notifications | ⏳ Planned |
+| Review Service | Ratings & reviews | ⏳ Planned |
+| Search Service | Product search | ⏳ Planned |
 
 ---
 
@@ -176,45 +176,86 @@ Setup instructions will be added as the microservices are implemented.
 
 # 🗺 Roadmap
 
-## Phase 1 — Project Planning
+## ✅ Phase 1 — Project Planning
 
 - [x] Create GitHub Repository
-- [x] Repository Documentation
 - [x] Initial Project Structure
+- [x] Repository Documentation
 - [ ] Software Requirements Specification (SRS)
-- [ ] Architecture Diagrams
+- [ ] System Architecture
+- [ ] API Design
+- [ ] Database Design
 
-## Phase 2 — Infrastructure
+---
 
-- [ ] Config Server
+## 🏗 Phase 2 — Infrastructure
+
+- [ ] Spring Cloud Config Server
 - [ ] Eureka Discovery Server
 - [ ] API Gateway
+- [ ] Docker Compose
+- [ ] Shared Configuration
 
-## Phase 3 — Authentication
+---
+
+## 🔐 Phase 3 — Authentication & Security
 
 - [ ] Authentication Service
 - [ ] JWT Authentication
 - [ ] Refresh Tokens
+- [ ] Role-Based Access Control (RBAC)
+- [ ] Spring Security
 
-## Phase 4 — Business Services
+---
 
+## 👥 Phase 4 — User Management
+
+- [ ] User Service
+- [ ] Admin Service
+
+---
+
+## 🛍 Phase 5 — Product Catalog
+
+- [ ] Category Service
 - [ ] Product Service
 - [ ] Inventory Service
+- [ ] Search Service
+
+---
+
+## 🛒 Phase 6 — Shopping Experience
+
 - [ ] Cart Service
+- [ ] Wishlist Service
 - [ ] Coupon Service
+
+---
+
+## 📦 Phase 7 — Order Processing
+
 - [ ] Order Service
 - [ ] Payment Service
 - [ ] Shipping Service
 - [ ] Notification Service
 
-## Phase 5 — Deployment
+---
 
-- [ ] Docker Compose
-- [ ] Kafka Integration
-- [ ] Monitoring
-- [ ] CI/CD Pipeline
+## ⭐ Phase 8 — Customer Engagement
+
+- [ ] Review Service
 
 ---
+
+## 🚀 Phase 9 — Production Readiness
+
+- [ ] Kafka Integration
+- [ ] Redis Caching
+- [ ] Prometheus
+- [ ] Grafana
+- [ ] Zipkin / OpenTelemetry
+- [ ] CI/CD Pipeline
+- [ ] Kubernetes Deployment (Optional)
 
 # 💡 Future Improvements
 
@@ -228,7 +269,33 @@ Setup instructions will be added as the microservices are implemented.
 - Recommendation Engine
 
 ---
+# 🚀 What We Will Build Next
 
-# 📄 License
+The project will be developed incrementally in the following order:
 
-This project is licensed under the **MIT License**.
+1. 📑 Software Requirements Specification (SRS)
+2. 🏗 System Architecture
+3. ⚙️ Spring Cloud Config Server
+4. 🔍 Eureka Discovery Server
+5. 🌐 API Gateway
+6. 🔐 Authentication Service
+7. 👥 User Service
+8. 👨‍💼 Admin Service
+9. 🗂 Category Service
+10. 📦 Product Service
+11. 📊 Inventory Service
+12. 🛒 Cart Service
+13. ❤️ Wishlist Service
+14. 🎟 Coupon Service
+15. 📑 Order Service
+16. 💳 Payment Service
+17. 🚚 Shipping Service
+18. 📢 Notification Service
+19. ⭐ Review Service
+20. 🔎 Search Service
+21. 📨 Kafka Event Integration
+22. 📈 Monitoring & Observability
+23. 🐳 Docker & Deployment
+24. 🚀 CI/CD Pipeline
+
+
