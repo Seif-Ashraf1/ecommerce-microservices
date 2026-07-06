@@ -80,8 +80,10 @@ The system follows a **Microservices Architecture** where each service owns its 
 | Authentication Service | ⏳ Planned |
 | User Service | ⏳ Planned |
 | Product Service | ⏳ Planned |
+| Category Service | ⏳ Planned |
 | Inventory Service | ⏳ Planned |
 | Cart Service | ⏳ Planned |
+| whishlist Service | ⏳ Planned |
 | Coupon Service | ⏳ Planned |
 | Order Service | ⏳ Planned |
 | Payment Service | ⏳ Planned |
@@ -89,6 +91,7 @@ The system follows a **Microservices Architecture** where each service owns its 
 | Notification Service | ⏳ Planned |
 | Review Service | ⏳ Planned |
 | Search Service | ⏳ Planned |
+| Admin Service | ⏳ Planned |
 
 ---
 
