@@ -181,9 +181,9 @@ Setup instructions will be added as the microservices are implemented.
 - [x] Create GitHub Repository
 - [x] Initial Project Structure
 - [x] Repository Documentation
-- [ ] Software Requirements Specification (SRS)
-- [ ] System Architecture
-- [ ] API Design
+- [x] Software Requirements Specification (SRS)
+- [x] System Architecture
+- [x] API Design
 - [ ] Database Design
 
 ---
