@@ -184,7 +184,7 @@ Setup instructions will be added as the microservices are implemented.
 - [x] Software Requirements Specification (SRS)
 - [x] System Architecture
 - [x] API Design
-- [ ] Database Design
+- [x] Database Design
 
 ---
 
