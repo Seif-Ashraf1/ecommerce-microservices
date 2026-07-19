@@ -176,6 +176,16 @@ Setup instructions will be added as the microservices are implemented.
 
 # 🗺 Roadmap
 
+# Project Roadmap
+
+Enterprise E-Commerce Microservices Platform — build order and phase checklist.
+
+Services and phases are ordered by dependency, not by feature grouping — e.g. `common-lib`,
+Kafka, and Redis are introduced in Phase 2 infrastructure because services starting in Phase 3
+already depend on them, not deferred to a later "production readiness" phase.
+
+---
+
 ## ✅ Phase 1 — Project Planning
 
 - [x] Create GitHub Repository
@@ -190,73 +200,97 @@ Setup instructions will be added as the microservices are implemented.
 
 ## 🏗 Phase 2 — Infrastructure
 
+- [ ] `common-lib` module (shared event DTOs, common exception shapes — **build before any service**)
 - [ ] Spring Cloud Config Server
 - [ ] Eureka Discovery Server
-- [ ] API Gateway
-- [ ] Docker Compose
-- [ ] Shared Configuration
+- [ ] API Gateway (routing + JWT validation shell; full RBAC lands in Phase 3)
+- [ ] Docker Compose skeleton, including infra containers even before code uses them:
+  - [ ] PostgreSQL
+  - [ ] Kafka (+ Zookeeper or KRaft)
+  - [ ] RabbitMQ
+  - [ ] Redis
+  - [ ] Elasticsearch
+  - [ ] MinIO
+- [ ] Shared configuration profiles (`dev`, `staging`, `prod`)
 
 ---
 
 ## 🔐 Phase 3 — Authentication & Security
 
-- [ ] Authentication Service
-- [ ] JWT Authentication
-- [ ] Refresh Tokens
+- [ ] Authentication Service (register, login, refresh, logout, password reset, email verification)
+- [ ] JWT Authentication (RS256, short-lived access + revocable refresh tokens)
+- [ ] Refresh Tokens (rotation on use, stored hashed)
 - [ ] Role-Based Access Control (RBAC)
 - [ ] Spring Security
+- [ ] Minimal Notification Service (Kafka consumer + SMTP send only —
+      enough to deliver verification/reset emails; full feature set completed in Phase 7)
 
 ---
 
 ## 👥 Phase 4 — User Management
 
 - [ ] User Service
-- [ ] Admin Service
+
+> **Note:** Admin Service is intentionally **not** in this phase — it aggregates Product, Order,
+> Inventory, and Coupon data via Feign, none of which exist yet. See Phase 8.
 
 ---
 
 ## 🛍 Phase 5 — Product Catalog
 
-- [ ] Category Service
-- [ ] Product Service
+- [ ] Category Service (build before Product — Product validates categories against it)
+- [ ] Product Service (+ MinIO for images, Redis for catalog cache)
 - [ ] Inventory Service
-- [ ] Search Service
+- [ ] Search Service (Elasticsearch, consumes Product events)
 
 ---
 
 ## 🛒 Phase 6 — Shopping Experience
 
-- [ ] Cart Service
-- [ ] Wishlist Service
-- [ ] Coupon Service
+- [ ] Coupon Service (no dependencies — can be built any time before checkout)
+- [ ] Cart Service (depends on Product + Inventory)
+- [ ] Wishlist Service (depends on Product + Cart)
 
 ---
 
 ## 📦 Phase 7 — Order Processing
 
-- [ ] Order Service
+- [ ] Order Service (Saga orchestrator — depends on Cart + Coupon)
 - [ ] Payment Service
 - [ ] Shipping Service
-- [ ] Notification Service
+- [ ] Notification Service — completed here (full multi-channel dispatch, all event consumers wired)
 
 ---
 
-## ⭐ Phase 8 — Customer Engagement
+## ⭐ Phase 8 — Customer Engagement & Aggregation
 
-- [ ] Review Service
+- [ ] Review Service (depends on Order Service for purchase verification)
+- [ ] Admin / BFF Service (moved from Phase 4 — everything it aggregates now exists)
 
 ---
 
 ## 🚀 Phase 9 — Production Readiness
 
-- [ ] Kafka Integration
-- [ ] Redis Caching
+- [ ] Kafka hardening (partitioning, consumer group scale-out, DLQ policies)
+- [ ] Redis hardening (cache eviction policy tuning, rate-limiter store)
 - [ ] Prometheus
 - [ ] Grafana
 - [ ] Zipkin / OpenTelemetry
+- [ ] Contract testing (Spring Cloud Contract or Pact) across all producer/consumer pairs
 - [ ] CI/CD Pipeline
-- [ ] Kubernetes Deployment (Optional)
+- [ ] Kubernetes Deployment (optional)
 
+---
+
+## Immediate next steps
+
+Since Phase 1 is complete, build in this exact order:
+
+1. Scaffold `common-lib` as its own Maven module.
+2. Bring up the Docker Compose infra skeleton (Postgres, Kafka, RabbitMQ, Redis, Elasticsearch, MinIO).
+3. Config Server → Eureka → API Gateway, in that order.
+4. Auth Service, wired to Kafka from day one.
+5. Minimal Notification Service, so Auth's email flows are testable end-to-end immediately.
 # 💡 Future Improvements
 
 - AI Product Recommendations
