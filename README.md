@@ -201,7 +201,7 @@ already depend on them, not deferred to a later "production readiness" phase.
 ## 🏗 Phase 2 — Infrastructure
 
 - [x] `common-lib` module (shared event DTOs, common exception shapes — **build before any service**)
-- [ ] Eureka Discovery Server
+- [x] Eureka Discovery Server
 - [ ] API Gateway (routing + JWT validation shell; full RBAC lands in Phase 3)
 - [ ] Docker Compose skeleton, including infra containers even before code uses them:
   - [ ] PostgreSQL
