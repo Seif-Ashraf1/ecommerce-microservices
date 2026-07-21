@@ -203,13 +203,13 @@ already depend on them, not deferred to a later "production readiness" phase.
 - [x] `common-lib` module (shared event DTOs, common exception shapes — **build before any service**)
 - [x] Eureka Discovery Server
 - [x] API Gateway (routing + JWT validation shell; full RBAC lands in Phase 3)
-- [ ] Docker Compose skeleton, including infra containers even before code uses them:
-  - [ ] PostgreSQL
-  - [ ] Kafka (+ Zookeeper or KRaft)
-  - [ ] RabbitMQ
-  - [ ] Redis
-  - [ ] Elasticsearch
-  - [ ] MinIO
+- [x] Docker Compose skeleton, including infra containers even before code uses them:
+  - [x] PostgreSQL
+  - [x] Kafka (+ Zookeeper or KRaft)
+  - [x] RabbitMQ
+  - [x] Redis
+  - [x] Elasticsearch
+  - [x] MinIO
 - [ ] Shared configuration profiles (`dev`, `staging`, `prod`)
 
 ---
